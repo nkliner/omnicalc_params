@@ -32,6 +32,15 @@ class CalculationsController < ApplicationController
 
   end
 
+  def flex_random
+
+    # Parameters: {"num"=>"5"}
+    @user_number = params["num"].to_f
+    @square = @user_number ** 2
+    render("calculations/flex_random.html.erb")
+
+  end
+
   def square_form
 
     render("calculations/square_form.html.erb")
@@ -47,6 +56,12 @@ class CalculationsController < ApplicationController
   def payment_form
 
     render("calculations/payment_form.html.erb")
+
+  end
+
+  def random_form
+
+    render("calculations/random_form.html.erb")
 
   end
 
@@ -76,6 +91,14 @@ class CalculationsController < ApplicationController
     @monthly_rate = (@user_rate/120000)
     @payment = @numerator/(1-((1+@monthly_rate)**@period))
     render("calculations/payment.html.erb")
+
+  end
+
+  def random
+    # Parameters: {"user_number"=>"66"}
+    @user_number = params[:user_number].to_f
+    @square = @user_number ** 2
+    render("calculations/random.html.erb")
 
   end
 
